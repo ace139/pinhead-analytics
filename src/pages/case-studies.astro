@@ -1,0 +1,229 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import SectionHero from '../components/SectionHero.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import Footer from '../components/Footer.astro';
+
+const caseStudies = [
+  {
+    industry: 'Financial Services',
+    title: 'AI-Powered Risk Assessment Platform',
+    description: 'Implemented a comprehensive LLM-based risk analysis system that processes regulatory documents, market data, and compliance requirements in real-time for a major investment bank.',
+    outcomeMetric: 'Risk Detection Improvement',
+    metricValue: '85%',
+    stackIcons: ['LLM', 'AWS', 'PT'],
+    link: '/case-studies/financial-risk-ai',
+    imageUrl: 'https://images.pexels.com/photos/5439381/pexels-photo-5439381.jpeg?auto=compress&cs=tinysrgb&w=600',
+    challenge: 'Manual risk assessment processes were taking weeks and missing critical market signals.',
+    solution: 'Custom LLM fine-tuned on financial regulations with real-time data processing pipeline.',
+    results: ['85% faster risk detection', '60% reduction in false positives', '$2M annual savings']
+  },
+  {
+    industry: 'Healthcare',
+    title: 'Clinical Decision Support System',
+    description: 'Developed a GenAI solution for automated diagnosis assistance and treatment recommendations, integrating with existing hospital management systems.',
+    outcomeMetric: 'Diagnostic Accuracy',
+    metricValue: '94%',
+    stackIcons: ['GPT', 'Azure', 'ML'],
+    link: '/case-studies/healthcare-diagnosis-ai',
+    imageUrl: 'https://images.pexels.com/photos/4386464/pexels-photo-4386464.jpeg?auto=compress&cs=tinysrgb&w=600',
+    challenge: 'Doctors needed faster access to medical literature and diagnostic support for complex cases.',
+    solution: 'Multi-agent system with medical knowledge base and real-time literature analysis.',
+    results: ['94% diagnostic accuracy', '40% faster diagnosis', 'Improved patient outcomes']
+  },
+  {
+    industry: 'Manufacturing',
+    title: 'Predictive Maintenance Revolution',
+    description: 'Implemented IoT-powered predictive maintenance using advanced ML models to prevent equipment failures and optimize production schedules.',
+    outcomeMetric: 'Downtime Reduction',
+    metricValue: '60%',
+    stackIcons: ['ML', 'IoT', 'GCP'],
+    link: '/case-studies/manufacturing-predictive-maintenance',
+    imageUrl: 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=600',
+    challenge: 'Unexpected equipment failures causing costly production downtime and safety risks.',
+    solution: 'ML-powered predictive models analyzing sensor data with automated alert systems.',
+    results: ['60% reduction in downtime', '35% lower maintenance costs', 'Zero safety incidents']
+  },
+  {
+    industry: 'Retail & E-commerce',
+    title: 'Personalized Shopping Experience',
+    description: 'Built an AI-driven personalization engine delivering tailored product recommendations and dynamic pricing strategies for a major e-commerce platform.',
+    outcomeMetric: 'Conversion Rate Increase',
+    metricValue: '42%',
+    stackIcons: ['AI', 'ML', 'AWS'],
+    link: '/case-studies/retail-personalization',
+    imageUrl: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600',
+    challenge: 'Low conversion rates and poor customer engagement with generic product recommendations.',
+    solution: 'Real-time personalization engine with behavioral analysis and dynamic pricing.',
+    results: ['42% increase in conversion', '25% higher AOV', '30% improved retention']
+  },
+  {
+    industry: 'Legal Services',
+    title: 'Automated Contract Analysis',
+    description: 'Developed specialized LLMs for legal document processing and contract analysis, reducing review time while improving accuracy for a top law firm.',
+    outcomeMetric: 'Review Speed Improvement',
+    metricValue: '90%',
+    stackIcons: ['LLM', 'NLP', 'Azure'],
+    link: '/case-studies/legal-contract-analysis',
+    imageUrl: 'https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=600',
+    challenge: 'Manual contract review was time-consuming and prone to human error.',
+    solution: 'Custom LLM trained on legal corpus with automated clause extraction and risk assessment.',
+    results: ['90% faster document review', '95% accuracy rate', '50% cost reduction']
+  },
+  {
+    industry: 'Supply Chain',
+    title: 'Intelligent Logistics Optimization',
+    description: 'Implemented multi-agent systems for supply chain optimization, demand forecasting, and route planning for a global logistics company.',
+    outcomeMetric: 'Cost Reduction',
+    metricValue: '30%',
+    stackIcons: ['AI', 'ML', 'GCP'],
+    link: '/case-studies/supply-chain-optimization',
+    imageUrl: 'https://images.pexels.com/photos/906494/pexels-photo-906494.jpeg?auto=compress&cs=tinysrgb&w=600',
+    challenge: 'Inefficient route planning and poor demand forecasting leading to high operational costs.',
+    solution: 'Multi-agent optimization system with real-time traffic and demand analysis.',
+    results: ['30% cost reduction', '25% faster deliveries', '40% better inventory turnover']
+  }
+];
+---
+
+<Layout 
+  title="Case Studies - Pinhead Analytics"
+  description="Explore our successful AI implementations across industries. Real results from GenAI, LLM, and data science projects that transformed businesses."
+>
+  <NavBar />
+  
+  <main class="pt-16 sm:pt-20">
+    <!-- Hero Section -->
+    <SectionHero
+      headline="Real Results from AI Transformations"
+      subcopy="Discover how we've helped organizations across industries achieve measurable success with our AI and data solutions."
+      variant="centered"
+    />
+
+    <!-- Case Studies Grid -->
+    <section class="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-magenta/5"></div>
+      <div class="hidden sm:block absolute top-1/4 right-1/4 w-64 h-64 lg:w-96 lg:h-96 bg-accent/10 rounded-full blur-3xl animate-float"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 xl:gap-12">
+          {caseStudies.map((study, index) => (
+            <div class="animate-scale-in" style={`animation-delay: ${index * 0.1}s; opacity: 0; animation-fill-mode: forwards;`}>
+              <CaseStudyCard
+                industry={study.industry}
+                title={study.title}
+                description={study.description}
+                outcomeMetric={study.outcomeMetric}
+                metricValue={study.metricValue}
+                stackIcons={study.stackIcons}
+                link={study.link}
+                imageUrl={study.imageUrl}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Metrics -->
+    <section class="py-16 sm:py-24 lg:py-32 bg-secondary relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 bg-gradient-to-br from-magenta/5 via-transparent to-accent/5"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-text mb-4 sm:mb-6">
+            Proven Impact Across Industries
+          </h2>
+          <p class="text-base sm:text-lg lg:text-xl xl:text-2xl text-text-muted max-w-4xl mx-auto leading-relaxed">
+            Our AI solutions deliver measurable results that drive business transformation.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 xl:gap-16">
+          <div class="text-center group">
+            <div class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-accent mb-2 sm:mb-4 transition-all duration-500 group-hover:scale-110">
+              150<span class="text-magenta">+</span>
+            </div>
+            <div class="text-text-muted text-sm sm:text-base lg:text-lg font-medium px-2">
+              AI Projects Delivered
+            </div>
+          </div>
+          
+          <div class="text-center group">
+            <div class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-accent mb-2 sm:mb-4 transition-all duration-500 group-hover:scale-110">
+              98<span class="text-magenta">%</span>
+            </div>
+            <div class="text-text-muted text-sm sm:text-base lg:text-lg font-medium px-2">
+              Client Success Rate
+            </div>
+          </div>
+          
+          <div class="text-center group">
+            <div class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-accent mb-2 sm:mb-4 transition-all duration-500 group-hover:scale-110">
+              $50<span class="text-magenta">M+</span>
+            </div>
+            <div class="text-text-muted text-sm sm:text-base lg:text-lg font-medium px-2">
+              Value Generated
+            </div>
+          </div>
+          
+          <div class="text-center group">
+            <div class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-accent mb-2 sm:mb-4 transition-all duration-500 group-hover:scale-110">
+              24<span class="text-magenta">mo</span>
+            </div>
+            <div class="text-text-muted text-sm sm:text-base lg:text-lg font-medium px-2">
+              Average ROI Timeline
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 sm:py-24 lg:py-32 bg-gradient-to-r from-accent/10 to-magenta/10 relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-magenta/20"></div>
+      <div class="hidden sm:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 lg:w-96 lg:h-96 bg-accent/20 rounded-full blur-3xl animate-pulse-glow"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-text mb-4 sm:mb-6">
+          Ready to Create Your Success Story?
+        </h2>
+        <p class="text-base sm:text-lg lg:text-xl xl:text-2xl text-text-muted mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed">
+          Let's discuss how we can help you achieve similar transformational results with AI.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+          <a
+            href="/contact"
+            class="group relative inline-flex items-center justify-center px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-6 bg-gradient-to-r from-accent to-magenta text-white font-medium rounded-2xl sm:rounded-3xl transition-all duration-500 transform hover:scale-105 hover:shadow-glow-lg overflow-hidden text-sm sm:text-base lg:text-lg"
+          >
+            <span class="relative z-10 flex items-center">
+              Start Your Project
+              <svg class="ml-2 sm:ml-3 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </span>
+            <div class="absolute inset-0 bg-gradient-to-r from-magenta to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+          </a>
+          <a
+            href="/services"
+            class="group inline-flex items-center justify-center px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-6 border-2 border-accent/30 text-accent font-medium rounded-2xl sm:rounded-3xl transition-all duration-500 hover:border-accent hover:bg-accent/10 hover:shadow-glow backdrop-blur-sm hover:scale-105 text-sm sm:text-base lg:text-lg"
+          >
+            <span class="flex items-center">
+              Explore Our Services
+              <svg class="ml-2 sm:ml-3 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,259 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout 
+  title="AI-Powered Risk Assessment Platform - Case Study - Pinhead Analytics"
+  description="How we implemented a comprehensive LLM-based risk analysis system for a major investment bank, achieving 85% faster risk detection and significant cost savings."
+>
+  <NavBar />
+  
+  <main class="pt-16 sm:pt-20">
+    <!-- Case Study Header -->
+    <section class="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-magenta/5"></div>
+      <div class="hidden sm:block absolute top-1/4 right-1/4 w-64 h-64 lg:w-96 lg:h-96 bg-accent/10 rounded-full blur-3xl animate-float"></div>
+      
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-8 sm:mb-12">
+          <div class="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-accent/10 text-accent text-sm font-medium rounded-xl sm:rounded-2xl border border-accent/20 backdrop-blur-sm mb-6 sm:mb-8">
+            Financial Services Case Study
+          </div>
+          
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-text mb-6 sm:mb-8 leading-tight">
+            AI-Powered Risk Assessment Platform
+          </h1>
+          
+          <p class="text-lg sm:text-xl lg:text-2xl text-text-muted leading-relaxed max-w-3xl mx-auto mb-8 sm:mb-12">
+            How we implemented a comprehensive LLM-based risk analysis system that processes regulatory documents, market data, and compliance requirements in real-time for a major investment bank.
+          </p>
+
+          <!-- Key Metrics -->
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
+            <div class="text-center">
+              <div class="text-2xl sm:text-3xl lg:text-4xl font-space font-bold text-accent mb-2">85%</div>
+              <div class="text-text-muted text-sm sm:text-base">Faster Risk Detection</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl sm:text-3xl lg:text-4xl font-space font-bold text-magenta mb-2">60%</div>
+              <div class="text-text-muted text-sm sm:text-base">Reduction in False Positives</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl sm:text-3xl lg:text-4xl font-space font-bold text-accent mb-2">$2M</div>
+              <div class="text-text-muted text-sm sm:text-base">Annual Savings</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl sm:text-3xl lg:text-4xl font-space font-bold text-magenta mb-2">24/7</div>
+              <div class="text-text-muted text-sm sm:text-base">Real-time Monitoring</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Study Content -->
+    <section class="py-8 sm:py-12 lg:py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <article class="prose prose-lg sm:prose-xl max-w-none prose-headings:font-space prose-headings:text-text prose-p:text-text-muted prose-p:leading-relaxed prose-a:text-accent prose-a:no-underline hover:prose-a:text-magenta prose-strong:text-text prose-code:text-accent prose-code:bg-accent/10 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-pre:bg-surface-light prose-pre:border prose-pre:border-border prose-blockquote:border-l-accent prose-blockquote:bg-accent/5 prose-blockquote:text-text">
+          
+          ## The Challenge
+
+          A major global investment bank was struggling with their risk assessment processes, which relied heavily on manual analysis of regulatory documents, market data, and compliance requirements. The existing system had several critical limitations:
+
+          - **Time-intensive processes:** Risk analysts spent weeks manually reviewing regulatory changes and assessing their impact on existing portfolios
+          - **Inconsistent analysis:** Different analysts would interpret the same regulatory documents differently, leading to inconsistent risk assessments
+          - **Delayed response:** By the time risk assessments were completed, market conditions had often changed significantly
+          - **Compliance gaps:** Manual processes led to occasional oversights in regulatory compliance
+          - **Scalability issues:** The team couldn't keep pace with the increasing volume of regulatory updates and market data
+
+          The bank needed a solution that could process vast amounts of unstructured text data in real-time while maintaining the accuracy and nuance required for financial risk assessment.
+
+          ## Our Solution
+
+          We designed and implemented a comprehensive AI-powered risk assessment platform that leverages advanced Large Language Models (LLMs) and natural language processing to automate and enhance the bank's risk analysis capabilities.
+
+          ### Architecture Overview
+
+          The solution consists of several integrated components:
+
+          **1. Document Ingestion Pipeline**
+          - Automated collection of regulatory documents from multiple sources
+          - Real-time market data feeds integration
+          - OCR and document parsing for various file formats
+          - Metadata extraction and categorization
+
+          **2. LLM-Powered Analysis Engine**
+          - Custom fine-tuned language models for financial domain
+          - Regulatory requirement extraction and interpretation
+          - Risk factor identification and classification
+          - Impact assessment and scoring
+
+          **3. Real-time Monitoring Dashboard**
+          - Live risk metrics and alerts
+          - Regulatory change notifications
+          - Portfolio impact visualization
+          - Compliance status tracking
+
+          **4. Integration Layer**
+          - Seamless integration with existing risk management systems
+          - API endpoints for third-party applications
+          - Data export capabilities for regulatory reporting
+
+          ### Technical Implementation
+
+          **Data Processing Pipeline:**
+          
+
+          **LLM Fine-tuning Process:**
+          We fine-tuned state-of-the-art language models on a comprehensive dataset of financial regulations, risk assessments, and market analysis documents. The training process included:
+
+          - Domain-specific vocabulary expansion
+          - Regulatory language pattern recognition
+          - Risk factor classification training
+          - Compliance requirement extraction
+
+          ## Implementation Process
+
+          ### Phase 1: Discovery and Planning (2 months)
+          - Comprehensive analysis of existing risk assessment workflows
+          - Stakeholder interviews with risk analysts and compliance officers
+          - Data audit and quality assessment
+          - Technical architecture design and approval
+
+          ### Phase 2: Development and Training (4 months)
+          - Data pipeline development and testing
+          - LLM fine-tuning and validation
+          - Dashboard and user interface development
+          - Integration with existing systems
+
+          ### Phase 3: Pilot Testing (2 months)
+          - Limited deployment with select risk assessment teams
+          - Performance monitoring and optimization
+          - User feedback collection and incorporation
+          - Accuracy validation against manual assessments
+
+          ### Phase 4: Full Deployment (1 month)
+          - Organization-wide rollout
+          - User training and support
+          - Performance monitoring and optimization
+          - Documentation and knowledge transfer
+
+          ## Results and Impact
+
+          The AI-powered risk assessment platform delivered significant improvements across all key metrics:
+
+          ### Operational Efficiency
+          - **85% reduction in risk assessment time:** What previously took weeks now takes hours
+          - **60% reduction in false positives:** More accurate risk identification reduces unnecessary alerts
+          - **24/7 monitoring capability:** Continuous analysis of market conditions and regulatory changes
+          - **Automated compliance tracking:** Real-time monitoring of regulatory adherence
+
+          ### Financial Impact
+          - **$2M annual cost savings:** Reduced manual labor and improved efficiency
+          - **Improved risk-adjusted returns:** Better risk identification leads to more informed investment decisions
+          - **Reduced compliance penalties:** Faster response to regulatory changes minimizes compliance risks
+          - **Enhanced portfolio performance:** More accurate risk assessment improves overall portfolio management
+
+          ### Quality Improvements
+          - **Consistent analysis:** Standardized approach eliminates analyst-to-analyst variations
+          - **Comprehensive coverage:** Automated system processes 100% of relevant documents
+          - **Historical trend analysis:** AI identifies patterns and trends not visible to manual analysis
+          - **Predictive capabilities:** Early warning system for emerging risks
+
+          ## Technology Stack
+
+          **Core Technologies:**
+          - **Large Language Models:** Custom fine-tuned transformers for financial domain
+          - **Cloud Infrastructure:** AWS with auto-scaling capabilities
+          - **Data Processing:** Apache Kafka for real-time streaming, Apache Spark for batch processing
+          - **Database:** PostgreSQL for structured data, Elasticsearch for document search
+          - **Monitoring:** Prometheus and Grafana for system monitoring
+
+          **Integration Technologies:**
+          - **APIs:** RESTful APIs for system integration
+          - **Message Queues:** RabbitMQ for asynchronous processing
+          - **Security:** OAuth 2.0, encryption at rest and in transit
+          - **Compliance:** Audit logging and data lineage tracking
+
+          ## Lessons Learned
+
+          ### Key Success Factors
+          1. **Domain Expertise:** Close collaboration with risk analysts was crucial for understanding nuanced requirements
+          2. **Data Quality:** Investing in high-quality training data significantly improved model performance
+          3. **Iterative Development:** Regular feedback loops with end users led to better user adoption
+          4. **Change Management:** Comprehensive training and support ensured smooth transition
+
+          ### Challenges Overcome
+          1. **Regulatory Complexity:** Developed specialized parsing techniques for complex regulatory language
+          2. **Data Integration:** Created robust ETL processes to handle diverse data sources
+          3. **User Adoption:** Implemented gradual rollout with extensive training and support
+          4. **Performance Optimization:** Fine-tuned models and infrastructure for real-time processing requirements
+
+          ## Future Enhancements
+
+          The bank is now exploring additional capabilities to further enhance their risk assessment platform:
+
+          - **Multi-language support:** Expanding to analyze regulatory documents in multiple languages
+          - **Predictive risk modeling:** Using historical data to predict future risk scenarios
+          - **Integration with trading systems:** Real-time risk assessment for trading decisions
+          - **Advanced visualization:** Enhanced dashboards with interactive risk scenario modeling
+
+          ## Client Testimonial
+
+          <blockquote class="p-6 italic border-l-4 bg-surface border-accent/50 text-text/80 rounded-lg">
+            <p>"The AI-powered risk assessment platform has transformed how we approach risk management. We can now respond to regulatory changes in hours instead of weeks, and our risk analysts can focus on strategic analysis rather than manual document review. The accuracy and speed of the system have exceeded our expectations."</p>
+            <footer class="mt-4 font-bold text-accent">
+              — Chief Risk Officer, Global Investment Bank
+            </footer>
+          </blockquote>
+
+          ## Conclusion
+
+          This case study demonstrates the transformative potential of AI in financial risk management. By leveraging advanced LLMs and natural language processing, we helped a major investment bank achieve significant improvements in efficiency, accuracy, and compliance while reducing costs and enhancing their competitive position.
+
+          The success of this implementation highlights the importance of:
+          - Deep domain expertise in both AI and financial services
+          - Collaborative approach with end users throughout the development process
+          - Robust technical architecture designed for enterprise-scale deployment
+          - Comprehensive change management and user adoption strategies
+
+          As regulatory complexity continues to increase and market volatility remains high, AI-powered risk assessment platforms will become increasingly critical for financial institutions seeking to maintain competitive advantages while ensuring regulatory compliance.
+
+        </article>
+      </div>
+    </section>
+
+    <!-- Related Case Studies -->
+    <section class="py-16 sm:py-24 bg-secondary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 sm:mb-16">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-space font-bold text-text mb-4 sm:mb-6">
+            Related Case Studies
+          </h2>
+          <p class="text-lg sm:text-xl text-text-muted max-w-3xl mx-auto">
+            Explore more success stories from our AI implementations.
+          </p>
+        </div>
+        
+        <div class="text-center">
+          <a
+            href="/case-studies"
+            class="group inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-accent/30 text-accent font-medium rounded-2xl sm:rounded-3xl transition-all duration-500 hover:border-accent hover:bg-accent/10 hover:shadow-glow backdrop-blur-sm hover:scale-105 text-sm sm:text-base"
+          >
+            <span class="flex items-center">
+              View All Case Studies
+              <svg class="ml-2 sm:ml-3 w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

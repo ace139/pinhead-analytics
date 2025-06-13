@@ -1,0 +1,213 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout 
+  title={`${entry.data.title} - Pinhead Analytics`}
+  description={entry.data.description}
+>
+  <NavBar />
+  
+  <main class="pt-16 sm:pt-20">
+    <!-- Article Header -->
+    <section class="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-magenta/5"></div>
+      <div class="hidden sm:block absolute top-1/4 right-1/4 w-64 h-64 lg:w-96 lg:h-96 bg-accent/10 rounded-full blur-3xl animate-float"></div>
+      
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-8 sm:mb-12">
+          <div class="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-accent/10 text-accent text-sm font-medium rounded-xl sm:rounded-2xl border border-accent/20 backdrop-blur-sm mb-6 sm:mb-8">
+            {entry.data.category}
+          </div>
+          
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-text mb-6 sm:mb-8 leading-tight">
+            {entry.data.title}
+          </h1>
+          
+          <div class="flex items-center justify-center space-x-4 sm:space-x-6 text-sm sm:text-base text-text-muted mb-6 sm:mb-8">
+            <span>{entry.data.date}</span>
+            <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
+            <span>{entry.data.readTime}</span>
+          </div>
+          
+          <p class="text-lg sm:text-xl lg:text-2xl text-text-muted leading-relaxed max-w-3xl mx-auto">
+            {entry.data.description}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="py-8 sm:py-12 lg:py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <article class="prose prose-lg sm:prose-xl max-w-none prose-headings:font-space prose-headings:text-text prose-p:text-text-muted prose-p:leading-relaxed prose-a:text-accent prose-a:no-underline hover:prose-a:text-magenta prose-strong:text-text prose-code:text-accent prose-code:bg-accent/10 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-pre:bg-surface-light prose-pre:border prose-pre:border-border prose-blockquote:border-l-accent prose-blockquote:bg-accent/5 prose-blockquote:text-text">
+          <Content />
+        </article>
+      </div>
+    </section>
+
+    <!-- Tags -->
+    {entry.data.tags && (
+      <section class="py-8 sm:py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="border-t border-border pt-6 sm:pt-8">
+            <h3 class="text-lg font-space font-bold text-text mb-4">Tags</h3>
+            <div class="flex flex-wrap gap-2 sm:gap-3">
+              {entry.data.tags.map((tag: string) => (
+                <span key={tag} class="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full border border-accent/20">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Related Articles -->
+    <section class="py-16 sm:py-24 bg-secondary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 sm:mb-16">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-space font-bold text-text mb-4 sm:mb-6">
+            Related Insights
+          </h2>
+          <p class="text-lg sm:text-xl text-text-muted max-w-3xl mx-auto">
+            Explore more insights on AI, data science, and digital transformation.
+          </p>
+        </div>
+        
+        <div class="text-center">
+          <a
+            href="/insights"
+            class="group inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-accent/30 text-accent font-medium rounded-2xl sm:rounded-3xl transition-all duration-500 hover:border-accent hover:bg-accent/10 hover:shadow-glow backdrop-blur-sm hover:scale-105 text-sm sm:text-base"
+          >
+            <span class="flex items-center">
+              View All Insights
+              <svg class="ml-2 sm:ml-3 w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Custom prose styles for better readability */
+  .prose {
+    color: theme('colors.text');
+  }
+  
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    color: theme('colors.text');
+    font-family: theme('fontFamily.space');
+  }
+  
+  .prose p {
+    color: theme('colors.text-muted');
+  }
+  
+  .prose a {
+    color: theme('colors.accent');
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .prose a:hover {
+    color: theme('colors.magenta');
+  }
+  
+  .prose code {
+    color: theme('colors.accent');
+    background-color: theme('colors.accent' / 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.875em;
+  }
+  
+  .prose pre {
+    background-color: theme('colors.surface-light');
+    border: 1px solid theme('colors.border');
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+  }
+  
+  .prose pre code {
+    background-color: transparent;
+    padding: 0;
+    color: theme('colors.text');
+  }
+  
+  .prose blockquote {
+    border-left: 4px solid theme('colors.accent');
+    background-color: theme('colors.accent' / 0.05);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+  
+  .prose ul,
+  .prose ol {
+    color: theme('colors.text-muted');
+  }
+  
+  .prose li {
+    margin: 0.5rem 0;
+  }
+  
+  .prose strong {
+    color: theme('colors.text');
+    font-weight: 600;
+  }
+  
+  .prose img {
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .prose table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 2rem 0;
+  }
+  
+  .prose th,
+  .prose td {
+    border: 1px solid theme('colors.border');
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  .prose th {
+    background-color: theme('colors.surface-light');
+    font-weight: 600;
+    color: theme('colors.text');
+  }
+  
+  .prose td {
+    color: theme('colors.text-muted');
+  }
+</style>

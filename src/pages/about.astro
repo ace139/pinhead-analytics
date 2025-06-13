@@ -1,0 +1,355 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import SectionHero from '../components/SectionHero.astro';
+import Footer from '../components/Footer.astro';
+
+const teamMembers = [
+  {
+    name: 'Dr. Sarah Chen',
+    role: 'Chief AI Officer & Co-Founder',
+    bio: 'Former Google AI researcher with 15+ years in machine learning and natural language processing. PhD in Computer Science from Stanford.',
+    image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
+    expertise: ['Generative AI', 'LLMs', 'AI Strategy'],
+    linkedin: '#'
+  },
+  {
+    name: 'Michael Rodriguez',
+    role: 'Chief Technology Officer & Co-Founder',
+    bio: 'Ex-Microsoft Principal Engineer specializing in distributed systems and MLOps. 12+ years building scalable AI infrastructure.',
+    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
+    expertise: ['MLOps', 'Cloud Architecture', 'Data Engineering'],
+    linkedin: '#'
+  },
+  {
+    name: 'Jennifer Liu',
+    role: 'Head of Data Science',
+    bio: 'Former Netflix data scientist with expertise in recommendation systems and predictive analytics. MS in Statistics from UC Berkeley.',
+    image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400',
+    expertise: ['Data Science', 'Machine Learning', 'Analytics'],
+    linkedin: '#'
+  },
+  {
+    name: 'Alex Thompson',
+    role: 'Senior AI Engineer',
+    bio: 'Computer vision expert with experience at Tesla and NVIDIA. Specializes in multi-modal AI systems and edge deployment.',
+    image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
+    expertise: ['Computer Vision', 'Multi-Agent Systems', 'Edge AI'],
+    linkedin: '#'
+  },
+  {
+    name: 'David Park',
+    role: 'Principal Data Engineer',
+    bio: 'Former Uber data infrastructure lead with expertise in real-time data processing and distributed systems architecture.',
+    image: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400',
+    expertise: ['Data Engineering', 'Real-time Processing', 'Cloud Platforms'],
+    linkedin: '#'
+  },
+  {
+    name: 'Dr. Emily Watson',
+    role: 'AI Ethics & Strategy Advisor',
+    bio: 'Former MIT researcher focused on responsible AI development and algorithmic fairness. PhD in AI Ethics from Harvard.',
+    image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400',
+    expertise: ['AI Ethics', 'Responsible AI', 'Strategy'],
+    linkedin: '#'
+  }
+];
+
+const values = [
+  {
+    title: 'Innovation First',
+    description: 'We stay at the forefront of AI technology, constantly exploring new possibilities and pushing boundaries.',
+    icon: '🚀'
+  },
+  {
+    title: 'Client Success',
+    description: 'Your success is our success. We measure our impact by the tangible results we deliver for your business.',
+    icon: '🎯'
+  },
+  {
+    title: 'Ethical AI',
+    description: 'We believe in responsible AI development that is fair, transparent, and beneficial for society.',
+    icon: '⚖️'
+  },
+  {
+    title: 'Continuous Learning',
+    description: 'The AI landscape evolves rapidly, and so do we. We invest heavily in learning and development.',
+    icon: '📚'
+  }
+];
+
+const milestones = [
+  {
+    year: '2019',
+    title: 'Company Founded',
+    description: 'Started with a vision to democratize AI for enterprises'
+  },
+  {
+    year: '2020',
+    title: 'First Major Client',
+    description: 'Delivered breakthrough ML solution for Fortune 500 company'
+  },
+  {
+    year: '2021',
+    title: 'Team Expansion',
+    description: 'Grew to 25+ AI specialists and data scientists'
+  },
+  {
+    year: '2022',
+    title: 'GenAI Specialization',
+    description: 'Pivoted to focus on generative AI and LLM solutions'
+  },
+  {
+    year: '2023',
+    title: '100+ Projects',
+    description: 'Reached milestone of 100+ successful AI implementations'
+  },
+  {
+    year: '2024',
+    title: 'Industry Leadership',
+    description: 'Recognized as leading GenAI consultancy with 150+ projects'
+  }
+];
+---
+
+<Layout 
+  title="About Us - Pinhead Analytics"
+  description="Learn about Pinhead Analytics, our team of AI experts, and our mission to transform businesses through innovative AI and data solutions."
+>
+  <NavBar />
+  
+  <main class="pt-16 sm:pt-20">
+    <!-- Hero Section -->
+    <SectionHero
+      headline="Pioneering the Future of AI"
+      subcopy="We're a team of AI experts, data scientists, and engineers passionate about transforming businesses through innovative artificial intelligence solutions."
+      variant="centered"
+    />
+
+    <!-- Our Story -->
+    <section class="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-magenta/5"></div>
+      <div class="hidden sm:block absolute top-1/4 right-1/4 w-64 h-64 lg:w-96 lg:h-96 bg-accent/10 rounded-full blur-3xl animate-float"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
+          <div class="space-y-6 sm:space-y-8">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-text">Our Story</h2>
+            <div class="space-y-4 sm:space-y-6 text-base sm:text-lg text-text-muted leading-relaxed">
+              <p>
+                Founded in 2019 by a team of AI researchers and industry veterans, Pinhead Analytics emerged from a simple observation: while AI technology was advancing rapidly, most businesses struggled to harness its potential effectively.
+              </p>
+              <p>
+                We started with a mission to bridge this gap, combining cutting-edge research with practical business acumen. Our founders, Dr. Sarah Chen and Michael Rodriguez, brought together their experience from Google AI and Microsoft to create solutions that don't just showcase AI capabilities, but deliver real business value.
+              </p>
+              <p>
+                Today, we're proud to be at the forefront of the generative AI revolution, helping enterprises transform their operations with LLMs, multi-agent systems, and advanced data solutions. Our work spans industries from healthcare to finance, manufacturing to retail.
+              </p>
+            </div>
+          </div>
+          
+          <div class="bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl lg:rounded-4xl p-6 sm:p-8 lg:p-12 border border-border relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-magenta/5"></div>
+            <div class="relative z-10 space-y-6 sm:space-y-8">
+              <div class="text-center">
+                <div class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-accent mb-2">150+</div>
+                <div class="text-text-muted text-sm sm:text-base">AI Projects Delivered</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-magenta mb-2">50+</div>
+                <div class="text-text-muted text-sm sm:text-base">Enterprise Clients</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-accent mb-2">98%</div>
+                <div class="text-text-muted text-sm sm:text-base">Client Success Rate</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="py-16 sm:py-24 lg:py-32 bg-secondary relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 bg-gradient-to-br from-magenta/5 via-transparent to-accent/5"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-text mb-4 sm:mb-6">Our Values</h2>
+          <p class="text-base sm:text-lg lg:text-xl xl:text-2xl text-text-muted max-w-4xl mx-auto leading-relaxed">
+            The principles that guide everything we do.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          {values.map((value, index) => (
+            <div 
+              class="group bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl sm:rounded-3xl lg:rounded-4xl transition-all duration-700 hover:bg-white hover:shadow-card-hover hover:-translate-y-2 border border-border hover:border-accent/30 text-center animate-scale-in"
+              style={`animation-delay: ${index * 0.1}s; opacity: 0; animation-fill-mode: forwards;`}
+            >
+              <div class="text-3xl sm:text-4xl lg:text-5xl mb-4 sm:mb-6">{value.icon}</div>
+              <h3 class="text-lg sm:text-xl lg:text-2xl font-space font-bold text-text mb-3 sm:mb-4 group-hover:text-accent transition-colors duration-300">
+                {value.title}
+              </h3>
+              <p class="text-text-muted leading-relaxed text-sm sm:text-base">
+                {value.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Team -->
+    <section class="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-magenta/5"></div>
+      <div class="hidden sm:block absolute bottom-1/4 left-1/4 w-48 h-48 lg:w-80 lg:h-80 bg-magenta/10 rounded-full blur-3xl animate-float" style="animation-delay: -2s;"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-text mb-4 sm:mb-6">Meet Our Team</h2>
+          <p class="text-base sm:text-lg lg:text-xl xl:text-2xl text-text-muted max-w-4xl mx-auto leading-relaxed">
+            World-class AI experts and researchers driving innovation in artificial intelligence.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+          {teamMembers.map((member, index) => (
+            <div 
+              class="group bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl lg:rounded-4xl overflow-hidden transition-all duration-700 hover:bg-white hover:shadow-card-hover hover:-translate-y-2 border border-border hover:border-accent/30 animate-scale-in"
+              style={`animation-delay: ${index * 0.1}s; opacity: 0; animation-fill-mode: forwards;`}
+            >
+              <div class="relative h-48 sm:h-56 lg:h-64 overflow-hidden">
+                <Image 
+                  src={member.image} 
+                  alt={member.name}
+                  width={400}
+                  height={400}
+                  format="webp"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent"></div>
+              </div>
+              
+              <div class="p-4 sm:p-6 lg:p-8">
+                <h3 class="text-lg sm:text-xl lg:text-2xl font-space font-bold text-text mb-2 group-hover:text-accent transition-colors duration-300">
+                  {member.name}
+                </h3>
+                <div class="text-accent font-medium mb-3 sm:mb-4 text-sm sm:text-base">{member.role}</div>
+                <p class="text-text-muted mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">{member.bio}</p>
+                
+                <div class="flex flex-wrap gap-1 sm:gap-2 mb-4 sm:mb-6">
+                  {member.expertise.map((skill, i) => (
+                    <span class="text-xs px-2 sm:px-3 py-1 bg-accent/10 text-accent rounded-full border border-accent/20">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+                
+                <a 
+                  href={member.linkedin}
+                  class="inline-flex items-center text-accent hover:text-magenta transition-colors duration-300 text-sm sm:text-base"
+                >
+                  <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                  Connect on LinkedIn
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Company Timeline -->
+    <section class="py-16 sm:py-24 lg:py-32 bg-secondary relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-magenta/5"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-text mb-4 sm:mb-6">Our Journey</h2>
+          <p class="text-base sm:text-lg lg:text-xl xl:text-2xl text-text-muted max-w-4xl mx-auto leading-relaxed">
+            Key milestones in our mission to democratize AI for enterprises.
+          </p>
+        </div>
+        
+        <div class="relative">
+          <!-- Timeline Line -->
+          <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-accent to-magenta rounded-full"></div>
+          
+          <div class="space-y-12 sm:space-y-16">
+            {milestones.map((milestone, index) => (
+              <div
+                class={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} animate-fade-in`}
+                style={`animation-delay: ${index * 0.2}s; opacity: 0; animation-fill-mode: forwards;`}
+              >
+                <div class={`w-5/12 ${index % 2 === 0 ? 'text-right pr-4 sm:pr-8' : 'text-left pl-4 sm:pl-8'}`}>
+                  <div class="bg-white/80 backdrop-blur-sm p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl lg:rounded-4xl border border-border hover:shadow-card-hover transition-all duration-500">
+                    <div class="text-2xl sm:text-3xl font-space font-bold text-accent mb-2">{milestone.year}</div>
+                    <h3 class="text-lg sm:text-xl lg:text-2xl font-space font-bold text-text mb-3 sm:mb-4">{milestone.title}</h3>
+                    <p class="text-text-muted leading-relaxed text-sm sm:text-base">{milestone.description}</p>
+                  </div>
+                </div>
+                
+                <!-- Timeline Dot -->
+                <div class="relative z-10 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-r from-accent to-magenta rounded-full border-2 sm:border-4 border-white shadow-lg"></div>
+                
+                <div class="w-5/12"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 sm:py-24 lg:py-32 bg-gradient-to-r from-accent/10 to-magenta/10 relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-magenta/20"></div>
+      <div class="hidden sm:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 lg:w-96 lg:h-96 bg-accent/20 rounded-full blur-3xl animate-pulse-glow"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-text mb-4 sm:mb-6">
+          Ready to Work with Us?
+        </h2>
+        <p class="text-base sm:text-lg lg:text-xl xl:text-2xl text-text-muted mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed">
+          Let's discuss how our team can help transform your business with AI.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+          <a
+            href="/contact"
+            class="group relative inline-flex items-center justify-center px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-6 bg-gradient-to-r from-accent to-magenta text-white font-medium rounded-2xl sm:rounded-3xl transition-all duration-500 transform hover:scale-105 hover:shadow-glow-lg overflow-hidden text-sm sm:text-base lg:text-lg"
+          >
+            <span class="relative z-10 flex items-center">
+              Start a Conversation
+              <svg class="ml-2 sm:ml-3 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </span>
+            <div class="absolute inset-0 bg-gradient-to-r from-magenta to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+          </a>
+          <a
+            href="/case-studies"
+            class="group inline-flex items-center justify-center px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-6 border-2 border-accent/30 text-accent font-medium rounded-2xl sm:rounded-3xl transition-all duration-500 hover:border-accent hover:bg-accent/10 hover:shadow-glow backdrop-blur-sm hover:scale-105 text-sm sm:text-base lg:text-lg"
+          >
+            <span class="flex items-center">
+              View Our Work
+              <svg class="ml-2 sm:ml-3 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

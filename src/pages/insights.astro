@@ -1,0 +1,210 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import SectionHero from '../components/SectionHero.astro';
+import BlogGrid from '../components/react/BlogGrid';
+import Footer from '../components/Footer.astro';
+
+const featuredPosts = [
+  {
+    title: 'The Future of Enterprise LLMs: Trends and Predictions for 2024',
+    excerpt: 'Explore the latest developments in large language models and their impact on enterprise operations, from cost optimization to specialized domain models.',
+    date: 'March 15, 2024',
+    category: 'AI Strategy',
+    slug: 'future-enterprise-llms-2024',
+    readTime: '8 min read'
+  },
+  {
+    title: 'Building RAG Systems: Best Practices and Common Pitfalls',
+    excerpt: 'A comprehensive guide to implementing Retrieval-Augmented Generation systems at scale, including architecture decisions and optimization strategies.',
+    date: 'March 12, 2024',
+    category: 'Technical',
+    slug: 'building-rag-systems-guide',
+    readTime: '12 min read'
+  }
+];
+
+const allPosts = [
+  ...featuredPosts,
+  {
+    title: 'Multi-Agent Systems: The Next Frontier in Enterprise AI',
+    excerpt: 'Discover how multi-agent architectures are revolutionizing complex business processes through collaborative AI systems.',
+    date: 'March 10, 2024',
+    category: 'AI Strategy',
+    slug: 'multi-agent-systems-enterprise',
+    readTime: '10 min read'
+  },
+  {
+    title: 'LLMOps: Operationalizing Large Language Models at Scale',
+    excerpt: 'Learn the essential practices for deploying and maintaining LLMs in production environments with reliability and efficiency.',
+    date: 'March 8, 2024',
+    category: 'Technical',
+    slug: 'llmops-production-guide',
+    readTime: '15 min read'
+  },
+  {
+    title: 'Data Engineering for AI: Building Robust Pipelines',
+    excerpt: 'Essential strategies for creating data infrastructure that powers successful AI initiatives and ensures data quality.',
+    date: 'March 5, 2024',
+    category: 'Data Engineering',
+    slug: 'data-engineering-ai-pipelines',
+    readTime: '11 min read'
+  },
+  {
+    title: 'AI Ethics in Practice: Implementing Responsible AI',
+    excerpt: 'Practical approaches to building ethical AI systems that are fair, transparent, and accountable in enterprise environments.',
+    date: 'March 3, 2024',
+    category: 'AI Strategy',
+    slug: 'ai-ethics-implementation',
+    readTime: '9 min read'
+  },
+  {
+    title: 'Computer Vision in Manufacturing: Real-World Applications',
+    excerpt: 'Explore how computer vision is transforming quality control, predictive maintenance, and safety in manufacturing environments.',
+    date: 'March 1, 2024',
+    category: 'Machine Learning',
+    slug: 'computer-vision-manufacturing',
+    readTime: '13 min read'
+  },
+  {
+    title: 'The ROI of AI: Measuring Success in Digital Transformation',
+    excerpt: 'Framework for calculating and demonstrating the return on investment of AI initiatives across different business functions.',
+    date: 'February 28, 2024',
+    category: 'Business Strategy',
+    slug: 'ai-roi-measurement',
+    readTime: '7 min read'
+  },
+  {
+    title: 'Natural Language Processing for Financial Services',
+    excerpt: 'How NLP is revolutionizing document processing, risk assessment, and customer service in the financial industry.',
+    date: 'February 25, 2024',
+    category: 'Industry Focus',
+    slug: 'nlp-financial-services',
+    readTime: '14 min read'
+  }
+];
+
+const categories = [
+  'All',
+  'AI Strategy',
+  'Technical',
+  'Data Engineering',
+  'Machine Learning',
+  'Business Strategy',
+  'Industry Focus'
+];
+---
+
+<Layout 
+  title="AI Insights & Thought Leadership - Pinhead Analytics"
+  description="Stay ahead with expert insights on AI trends, best practices, and industry developments. Thought leadership from our team of AI and data experts."
+>
+  <NavBar />
+  
+  <main class="pt-16 sm:pt-20">
+    <!-- Hero Section -->
+    <SectionHero
+      headline="AI Insights & Thought Leadership"
+      subcopy="Stay ahead of the curve with expert perspectives on AI trends, best practices, and industry developments from our team of specialists."
+      variant="centered"
+    />
+
+    <!-- Featured Posts -->
+    <section class="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-magenta/5"></div>
+      <div class="hidden sm:block absolute top-1/4 right-1/4 w-64 h-64 lg:w-96 lg:h-96 bg-accent/10 rounded-full blur-3xl animate-float"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-text mb-4 sm:mb-6 animate-slide-up">
+            Featured Insights
+          </h2>
+          <p class="text-base sm:text-lg lg:text-xl xl:text-2xl text-text-muted max-w-4xl mx-auto leading-relaxed animate-fade-in" style="animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards;">
+            Deep dives into the latest AI developments and strategic insights.
+          </p>
+        </div>
+        
+        <div class="animate-fade-in" style="animation-delay: 0.5s; opacity: 0; animation-fill-mode: forwards;">
+          <BlogGrid posts={featuredPosts} featured={true} client:load />
+        </div>
+      </div>
+    </section>
+
+    <!-- All Posts -->
+    <section class="py-16 sm:py-24 lg:py-32 bg-secondary relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 bg-gradient-to-br from-magenta/5 via-transparent to-accent/5"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-text mb-4 sm:mb-6">
+            All Insights
+          </h2>
+          <p class="text-base sm:text-lg lg:text-xl xl:text-2xl text-text-muted max-w-4xl mx-auto leading-relaxed">
+            Explore our complete collection of AI insights and industry analysis.
+          </p>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4 mb-12 sm:mb-16">
+          {categories.map((category, index) => (
+            <button
+              class={`px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-medium transition-all duration-300 text-xs sm:text-sm lg:text-base ${
+                index === 0 
+                  ? 'bg-accent text-white shadow-glow' 
+                  : 'bg-white/80 text-text-muted hover:bg-accent/10 hover:text-accent border border-border'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+        
+        <BlogGrid posts={allPosts} client:load />
+      </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="py-16 sm:py-24 lg:py-32 bg-gradient-to-r from-accent/10 to-magenta/10 relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-magenta/20"></div>
+      <div class="hidden sm:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 lg:w-96 lg:h-96 bg-accent/20 rounded-full blur-3xl animate-pulse-glow"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-text mb-4 sm:mb-6">
+          Stay Updated with AI Insights
+        </h2>
+        <p class="text-base sm:text-lg lg:text-xl xl:text-2xl text-text-muted mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed">
+          Get the latest AI trends, insights, and best practices delivered to your inbox.
+        </p>
+        
+        <div class="max-w-2xl mx-auto">
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              class="flex-1 px-4 sm:px-6 py-3 sm:py-4 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-xl sm:rounded-2xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300 text-sm sm:text-base"
+            />
+            <button
+              class="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-accent to-magenta text-white font-medium rounded-xl sm:rounded-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-glow overflow-hidden text-sm sm:text-base"
+            >
+              <span class="relative z-10 flex items-center">
+                Subscribe
+                <svg class="ml-2 w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+              </span>
+              <div class="absolute inset-0 bg-gradient-to-r from-magenta to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </button>
+          </div>
+          <p class="text-xs sm:text-sm text-text-muted mt-3 sm:mt-4">
+            No spam, unsubscribe at any time. We respect your privacy.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

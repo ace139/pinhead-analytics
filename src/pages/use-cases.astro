@@ -1,0 +1,196 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import SectionHero from '../components/SectionHero.astro';
+import Footer from '../components/Footer.astro';
+
+const useCases = [
+  {
+    industry: 'Financial Services',
+    title: 'AI-Powered Risk Assessment',
+    description: 'Automated risk analysis using LLMs to process regulatory documents, market data, and compliance requirements in real-time.',
+    benefits: ['85% faster risk detection', 'Reduced compliance costs', 'Real-time monitoring'],
+    services: ['Generative AI & LLMs', 'Data Engineering', 'Business Analytics'],
+    icon: '🏦'
+  },
+  {
+    industry: 'Healthcare',
+    title: 'Clinical Decision Support',
+    description: 'AI-driven diagnostic assistance and treatment recommendations using multi-agent systems and medical knowledge bases.',
+    benefits: ['94% diagnostic accuracy', 'Reduced treatment time', 'Evidence-based recommendations'],
+    services: ['Multi-Agent Applications', 'Machine Learning & AI', 'Data Science'],
+    icon: '🏥'
+  },
+  {
+    industry: 'Manufacturing',
+    title: 'Predictive Maintenance',
+    description: 'IoT-powered predictive maintenance using ML models to prevent equipment failures and optimize production schedules.',
+    benefits: ['60% reduction in downtime', 'Lower maintenance costs', 'Improved safety'],
+    services: ['Machine Learning & AI', 'Data Engineering', 'Business Analytics'],
+    icon: '🏭'
+  },
+  {
+    industry: 'Retail & E-commerce',
+    title: 'Personalized Customer Experience',
+    description: 'AI-driven personalization engines that deliver tailored product recommendations and dynamic pricing strategies.',
+    benefits: ['40% increase in conversion', 'Higher customer satisfaction', 'Optimized inventory'],
+    services: ['Generative AI & LLMs', 'Machine Learning & AI', 'Data Science'],
+    icon: '🛒'
+  },
+  {
+    industry: 'Legal Services',
+    title: 'Document Analysis & Contract Review',
+    description: 'Automated legal document processing and contract analysis using specialized LLMs trained on legal corpus.',
+    benefits: ['90% faster document review', 'Improved accuracy', 'Cost reduction'],
+    services: ['Generative AI & LLMs', 'MCP Server Development', 'Data Engineering'],
+    icon: '⚖️'
+  },
+  {
+    industry: 'Supply Chain',
+    title: 'Intelligent Logistics Optimization',
+    description: 'Multi-agent systems for supply chain optimization, demand forecasting, and route planning.',
+    benefits: ['30% cost reduction', 'Improved delivery times', 'Better inventory management'],
+    services: ['Multi-Agent Applications', 'Machine Learning & AI', 'Business Analytics'],
+    icon: '🚚'
+  },
+  {
+    industry: 'Energy & Utilities',
+    title: 'Smart Grid Management',
+    description: 'AI-powered energy distribution optimization and predictive maintenance for utility infrastructure.',
+    benefits: ['25% energy savings', 'Reduced outages', 'Optimized distribution'],
+    services: ['Machine Learning & AI', 'Data Engineering', 'LLMOps & MLOps'],
+    icon: '⚡'
+  },
+  {
+    industry: 'Insurance',
+    title: 'Automated Claims Processing',
+    description: 'Intelligent claims processing using computer vision and NLP to automate damage assessment and fraud detection.',
+    benefits: ['70% faster processing', 'Reduced fraud', 'Improved customer experience'],
+    services: ['Generative AI & LLMs', 'Machine Learning & AI', 'Data Science'],
+    icon: '🛡️'
+  },
+  {
+    industry: 'Education',
+    title: 'Adaptive Learning Platforms',
+    description: 'Personalized education systems that adapt to individual learning styles and provide intelligent tutoring.',
+    benefits: ['50% better learning outcomes', 'Personalized curriculum', 'Real-time feedback'],
+    services: ['Generative AI & LLMs', 'Multi-Agent Applications', 'Data Science'],
+    icon: '🎓'
+  }
+];
+---
+
+<Layout 
+  title="AI Use Cases - Pinhead Analytics"
+  description="Explore real-world AI applications across industries. See how our GenAI, LLM, and data solutions drive transformation in finance, healthcare, manufacturing, and more."
+>
+  <NavBar />
+  
+  <main class="pt-16 sm:pt-20">
+    <!-- Hero Section -->
+    <SectionHero
+      headline="AI Use Cases Across Industries"
+      subcopy="Discover how our AI solutions are transforming businesses across various sectors, from financial services to healthcare, manufacturing to retail."
+      variant="centered"
+    />
+
+    <!-- Use Cases Grid -->
+    <section class="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-magenta/5"></div>
+      <div class="hidden sm:block absolute top-1/4 right-1/4 w-64 h-64 lg:w-96 lg:h-96 bg-accent/10 rounded-full blur-3xl animate-float"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+          {useCases.map((useCase, index) => (
+            <div
+              class="group bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl lg:rounded-4xl overflow-hidden transition-all duration-700 hover:bg-white hover:shadow-card-hover hover:-translate-y-2 border border-border hover:border-accent/30 flex flex-col animate-scale-in"
+              style={`animation-delay: ${index * 0.1}s; opacity: 0; animation-fill-mode: forwards; min-height: 450px;`}
+            >
+              <!-- Glow Effect -->
+              <div class="absolute inset-0 bg-gradient-to-r from-accent/5 to-magenta/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              
+              <div class="relative z-10 p-4 sm:p-6 lg:p-8 flex flex-col flex-grow">
+                <div class="flex items-center justify-between mb-4 sm:mb-6">
+                  <span class="inline-flex items-center px-2 sm:px-3 py-1 sm:py-2 bg-accent/10 text-accent text-xs sm:text-sm font-medium rounded-xl sm:rounded-2xl border border-accent/20 backdrop-blur-sm transition-all duration-300 group-hover:bg-accent/20 group-hover:scale-105">
+                    {useCase.industry}
+                  </span>
+                  <div class="text-xl sm:text-2xl">{useCase.icon}</div>
+                </div>
+                
+                <h3 class="text-lg sm:text-xl lg:text-2xl font-space font-bold text-text mb-3 sm:mb-4 leading-tight transition-colors duration-300 group-hover:text-accent">
+                  {useCase.title}
+                </h3>
+                
+                <p class="text-text-muted mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base flex-grow">
+                  {useCase.description}
+                </p>
+                
+                <!-- Benefits -->
+                <div class="mb-4 sm:mb-6">
+                  <h4 class="text-xs sm:text-sm font-medium text-text mb-2 sm:mb-3">Key Benefits:</h4>
+                  <ul class="space-y-1 sm:space-y-2">
+                    {useCase.benefits.map((benefit, i) => (
+                      <li class="flex items-start text-xs sm:text-sm text-text-muted">
+                        <svg class="w-3 h-3 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="leading-relaxed">{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <!-- Services Used -->
+                <div class="mt-auto">
+                  <h4 class="text-xs sm:text-sm font-medium text-text mb-2 sm:mb-3">Services Used:</h4>
+                  <div class="flex flex-wrap gap-1 sm:gap-2">
+                    {useCase.services.map((service, i) => (
+                      <span class="text-xs px-2 py-1 bg-magenta/10 text-magenta rounded-full border border-magenta/20">
+                        {service}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Hover Border Effect -->
+              <div class="absolute inset-0 rounded-2xl sm:rounded-3xl lg:rounded-4xl border-2 border-transparent group-hover:border-accent/20 transition-all duration-700 pointer-events-none"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 sm:py-24 lg:py-32 bg-gradient-to-r from-accent/10 to-magenta/10 relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-magenta/20"></div>
+      <div class="hidden sm:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 lg:w-96 lg:h-96 bg-accent/20 rounded-full blur-3xl animate-pulse-glow"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-text mb-4 sm:mb-6">
+          Ready to Transform Your Industry?
+        </h2>
+        <p class="text-base sm:text-lg lg:text-xl xl:text-2xl text-text-muted mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed">
+          Let's discuss how our AI solutions can be tailored to your specific industry challenges and opportunities.
+        </p>
+        <a
+          href="/contact"
+          class="group relative inline-flex items-center justify-center px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-6 bg-gradient-to-r from-accent to-magenta text-white font-medium rounded-2xl sm:rounded-3xl transition-all duration-500 transform hover:scale-105 hover:shadow-glow-lg overflow-hidden text-sm sm:text-base lg:text-lg"
+        >
+          <span class="relative z-10 flex items-center">
+            Discuss Your Use Case
+            <svg class="ml-2 sm:ml-3 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </span>
+          <div class="absolute inset-0 bg-gradient-to-r from-magenta to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

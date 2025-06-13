@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import SectionHero from '../components/SectionHero.astro';
+import ContactForm from '../components/react/ContactForm';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Contact Us - Pinhead Analytics"
+  description="Get in touch with our AI experts. Schedule a consultation to discuss your AI transformation needs."
+>
+  <NavBar />
+  
+  <main class="pt-16 sm:pt-20">
+    <!-- Hero Section -->
+    <SectionHero
+      headline="Let's Transform Your Business Together"
+      subcopy="Ready to unlock the power of AI for your organization? Our experts are here to help you navigate your AI journey from strategy to implementation."
+      variant="centered"
+    />
+
+    <!-- Contact Section -->
+    <section class="py-16 sm:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 sm:gap-16">
+          <!-- Contact Information -->
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-space font-bold text-text mb-4 sm:mb-6">Get in Touch</h2>
+            <p class="text-text-muted mb-6 sm:mb-8 text-base sm:text-lg">
+              Whether you're looking to develop an AI strategy, implement LLM solutions, or optimize your data infrastructure, our team is ready to help you achieve your goals.
+            </p>
+            
+            <div class="space-y-4 sm:space-y-6">
+              <div class="flex items-start">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                  <svg class="w-5 h-5 sm:w-6 sm:h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-base sm:text-lg font-medium text-text mb-1">Office Location</h3>
+                  <p class="text-text-muted text-sm sm:text-base">
+                    123 Innovation Drive<br>
+                    San Francisco, CA 94105
+                  </p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-magenta/10 rounded-lg flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                  <svg class="w-5 h-5 sm:w-6 sm:h-6 text-magenta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-base sm:text-lg font-medium text-text mb-1">Email Us</h3>
+                  <p class="text-text-muted text-sm sm:text-base">
+                    hello@pinheadanalytics.com<br>
+                    partnerships@pinheadanalytics.com
+                  </p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                  <svg class="w-5 h-5 sm:w-6 sm:h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-base sm:text-lg font-medium text-text mb-1">Call Us</h3>
+                  <p class="text-text-muted text-sm sm:text-base">
+                    +1 (555) 123-4567<br>
+                    Mon-Fri 9AM-6PM PST
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- What to Expect -->
+            <div class="mt-8 sm:mt-12 p-4 sm:p-6 bg-surface-light rounded-xl sm:rounded-2xl">
+              <h3 class="text-lg sm:text-xl font-space font-bold text-text mb-3 sm:mb-4">What to Expect</h3>
+              <ul class="space-y-2 sm:space-y-3 text-text-muted">
+                <li class="flex items-start">
+                  <svg class="w-4 h-4 sm:w-5 sm:h-5 text-accent mt-0.5 mr-2 sm:mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-sm sm:text-base">Response within 24 hours</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-4 h-4 sm:w-5 sm:h-5 text-accent mt-0.5 mr-2 sm:mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-sm sm:text-base">Free 30-minute discovery call</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-4 h-4 sm:w-5 sm:h-5 text-accent mt-0.5 mr-2 sm:mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-sm sm:text-base">Customized proposal within 1 week</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-4 h-4 sm:w-5 sm:h-5 text-accent mt-0.5 mr-2 sm:mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-sm sm:text-base">No obligation consultation</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div>
+            <ContactForm client:load />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

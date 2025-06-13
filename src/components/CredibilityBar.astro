@@ -1,0 +1,42 @@
+---
+export interface Props {
+  metrics: Array<{
+    value: string;
+    label: string;
+    suffix?: string;
+  }>;
+}
+
+const { metrics } = Astro.props;
+---
+
+<section class="py-12 sm:py-16 lg:py-20 bg-surface-light/50 backdrop-blur-sm border-y border-border relative overflow-hidden">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-accent/20 via-transparent to-magenta/20"></div>
+  </div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 lg:gap-16">
+      {metrics.map((metric, index) => (
+        <div 
+          class="text-center group animate-scale-in" 
+          style={`animation-delay: ${index * 0.2}s; opacity: 0; animation-fill-mode: forwards;`}
+        >
+          <div class="relative">
+            <div class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-accent mb-3 sm:mb-4 transition-all duration-500 group-hover:scale-110">
+              <span class="relative z-10">
+                {metric.value}
+                {metric.suffix && <span class="text-magenta">{metric.suffix}</span>}
+              </span>
+              <div class="absolute inset-0 bg-gradient-to-r from-accent/20 to-magenta/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform scale-150"></div>
+            </div>
+            <div class="text-text-muted text-xs sm:text-sm lg:text-base font-medium leading-relaxed transition-colors duration-300 group-hover:text-text px-2">
+              {metric.label}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

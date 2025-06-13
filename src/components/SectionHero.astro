@@ -1,0 +1,88 @@
+---
+export interface Props {
+  headline: string;
+  subcopy: string;
+  illustration_svg?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  variant?: 'default' | 'centered' | 'split';
+}
+
+const { 
+  headline, 
+  subcopy, 
+  illustration_svg, 
+  ctaText = 'Contact Us',
+  ctaLink = '/contact',
+  variant = 'default'
+} = Astro.props;
+---
+
+<section class={`py-16 sm:py-24 lg:py-32 xl:py-40 relative overflow-hidden ${variant === 'centered' ? 'text-center' : ''}`}>
+  <!-- Background Elements -->
+  <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-magenta/5"></div>
+  <div class="hidden sm:block absolute top-1/4 left-1/4 w-64 h-64 lg:w-96 lg:h-96 bg-accent/10 rounded-full blur-3xl animate-float"></div>
+  <div class="hidden sm:block absolute bottom-1/4 right-1/4 w-48 h-48 lg:w-80 lg:h-80 bg-magenta/10 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class={`grid ${variant === 'split' ? 'lg:grid-cols-2' : 'grid-cols-1'} gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center`}>
+      <div class={variant === 'centered' ? 'max-w-5xl mx-auto' : ''}>
+        <div class="space-y-6 sm:space-y-8">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-space font-bold text-text leading-tight">
+            <span class="block animate-slide-up" style="animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards;">
+              {headline.split(' ').slice(0, Math.ceil(headline.split(' ').length / 2)).join(' ')}
+            </span>
+            <span class="block bg-gradient-to-r from-accent to-magenta bg-clip-text text-transparent animate-slide-up" style="animation-delay: 0.4s; opacity: 0; animation-fill-mode: forwards;">
+              {headline.split(' ').slice(Math.ceil(headline.split(' ').length / 2)).join(' ')}
+            </span>
+          </h1>
+          
+          <p class="text-base sm:text-lg lg:text-xl xl:text-2xl text-text-muted leading-relaxed max-w-4xl animate-fade-in" style="animation-delay: 0.6s; opacity: 0; animation-fill-mode: forwards;">
+            {subcopy}
+          </p>
+          
+          {(ctaText && ctaLink) && (
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-start animate-fade-in" style="animation-delay: 0.8s; opacity: 0; animation-fill-mode: forwards;">
+              <a
+                href={ctaLink}
+                class="group relative inline-flex items-center justify-center px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-gradient-to-r from-accent to-magenta text-white font-medium rounded-2xl sm:rounded-3xl transition-all duration-500 transform hover:scale-105 hover:shadow-glow overflow-hidden text-sm sm:text-base lg:text-lg"
+              >
+                <span class="relative z-10 flex items-center">
+                  {ctaText}
+                  <svg class="ml-2 sm:ml-3 w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                  </svg>
+                </span>
+                <div class="absolute inset-0 bg-gradient-to-r from-magenta to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              </a>
+              
+              <a
+                href="/case-studies"
+                class="group relative inline-flex items-center justify-center px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 border-2 border-accent/30 text-accent font-medium rounded-2xl sm:rounded-3xl transition-all duration-500 hover:border-accent hover:bg-accent/10 hover:shadow-glow backdrop-blur-sm text-sm sm:text-base lg:text-lg"
+              >
+                <span class="flex items-center">
+                  View Case Studies
+                  <svg class="ml-2 sm:ml-3 w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </span>
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+      
+      {illustration_svg && variant === 'split' && (
+        <div class="hidden lg:flex justify-center lg:justify-end animate-slide-in-right" style="animation-delay: 1s; opacity: 0; animation-fill-mode: forwards;">
+          <div class="w-full max-w-lg xl:max-w-2xl relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-accent/20 to-magenta/20 rounded-4xl lg:rounded-6xl blur-2xl animate-pulse-glow"></div>
+            <div class="relative z-10 p-6 sm:p-8">
+              <Fragment set:html={illustration_svg} />
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
