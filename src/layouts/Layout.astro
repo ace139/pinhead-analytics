@@ -1,6 +1,7 @@
 ---
 import { SEO } from 'astro-seo';
 
+// For .astro pages using <Layout title="..." />
 export interface Props {
   title: string;
   description?: string;
@@ -8,12 +9,55 @@ export interface Props {
   noindex?: boolean;
 }
 
-const { 
-  title, 
-  description = 'Leading Data & AI Consulting Firm specializing in GenAI and LLM solutions for enterprise transformation.',
-  canonical,
-  noindex = false 
-} = Astro.props;
+// For MDX pages using this layout via frontmatter
+interface MdxLayoutProps {
+  frontmatter: {
+    title: string;
+    description?: string;
+    canonical?: string;
+    noindex?: boolean;
+  };
+  // Astro also adds other properties like 'url' to MDX pages
+  url: string; // url is typically available for MDX pages
+}
+
+// Use a type assertion for Astro.props. This tells TypeScript to expect one of these shapes.
+const astroProps = Astro.props as Props | MdxLayoutProps;
+
+let title: string;
+let description: string | undefined;
+let canonical: string | undefined;
+let noindex: boolean = false; // Default to false, so pages are indexed unless specified
+
+const defaultDescription = 'Leading Data & AI Consulting Firm specializing in GenAI and LLM solutions for enterprise transformation.';
+
+// Type guard: Check if 'frontmatter' exists and is an object to determine if it's MdxLayoutProps
+if ('frontmatter' in astroProps && typeof astroProps.frontmatter === 'object' && astroProps.frontmatter !== null) {
+  // It's an MDX page using frontmatter
+  const fm = astroProps.frontmatter;
+  if (typeof fm.title !== 'string' || fm.title.trim() === '') {
+    throw new Error(`[Layout.astro] MDX Page frontmatter for '${astroProps.url}' is missing a valid 'title'.`);
+  }
+  title = fm.title;
+  description = fm.description || defaultDescription;
+  canonical = fm.canonical;
+  noindex = fm.noindex ?? false; // Default to false if noindex is undefined or null
+} else if ('title' in astroProps && typeof astroProps.title === 'string' && astroProps.title.trim() !== '') {
+  // It's an .astro page passing props directly
+  title = astroProps.title;
+  description = astroProps.description || defaultDescription;
+  canonical = astroProps.canonical;
+  noindex = astroProps.noindex ?? false; // Default to false if noindex is undefined or null
+} else {
+  // If neither shape matches or title is invalid/missing
+  const pageUrl = 'url' in astroProps ? astroProps.url : Astro.url.pathname;
+  throw new Error(
+    `[Layout.astro] Page title is missing or invalid for '${pageUrl}'. ` +
+    `Ensure a non-empty 'title' is in component props (for .astro pages) or in frontmatter (for .md/.mdx pages).`
+  );
+}
+
+// At this point, 'title' is guaranteed to be a non-empty string.
 ---
 
 <!doctype html>

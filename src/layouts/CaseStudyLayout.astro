@@ -1,0 +1,39 @@
+---
+import Layout from './Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+
+interface BaseProps {
+  title: string;
+  description?: string;
+  canonical?: string;
+  noindex?: boolean;
+}
+
+// MDX pages pass frontmatter; .astro pages could pass props directly (rare for case studies)
+// This layout supports both patterns
+const astroProps = Astro.props as BaseProps | { frontmatter: BaseProps };
+
+let title: string;
+let description: string | undefined;
+let canonical: string | undefined;
+let noindex: boolean | undefined;
+
+if ('frontmatter' in astroProps && astroProps.frontmatter) {
+  ({ title, description, canonical, noindex } = astroProps.frontmatter);
+} else {
+  ({ title, description, canonical, noindex } = astroProps as BaseProps);
+}
+
+if (!title || title.trim() === '') {
+  throw new Error(
+    `[CaseStudyLayout] Missing required 'title' for URL '${Astro.url.pathname}'.`
+  );
+}
+---
+
+<Layout title={title} description={description} canonical={canonical} noindex={noindex}>
+  <NavBar />
+  <slot />
+  <Footer />
+</Layout>

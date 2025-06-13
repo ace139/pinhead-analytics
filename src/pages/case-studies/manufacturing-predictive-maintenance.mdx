@@ -1,0 +1,297 @@
+---
+layout: ../../layouts/CaseStudyLayout.astro
+title: "Predictive Maintenance Revolution - Case Study - Pinhead Analytics"
+description: "How we implemented IoT-powered predictive maintenance using advanced ML models to prevent equipment failures and optimize production schedules, achieving 60% downtime reduction."
+---
+
+<main class="pt-16 sm:pt-20">
+  {/* Case Study Header */}
+  <section class="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
+    {/* Background Elements */}
+    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-magenta/5"></div>
+    <div class="hidden sm:block absolute top-1/4 right-1/4 w-64 h-64 lg:w-96 lg:h-96 bg-accent/10 rounded-full blur-3xl animate-float"></div>
+    
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-8 sm:mb-12">
+        <div class="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-accent/10 text-accent text-sm font-medium rounded-xl sm:rounded-2xl border border-accent/20 backdrop-blur-sm mb-6 sm:mb-8">
+          Manufacturing Case Study
+        </div>
+        
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-space font-bold text-text mb-6 sm:mb-8 leading-tight">
+          Predictive Maintenance Revolution
+        </h1>
+        
+        <p class="text-lg sm:text-xl lg:text-2xl text-text-muted leading-relaxed max-w-3xl mx-auto mb-8 sm:mb-12">
+          How we implemented IoT-powered predictive maintenance using advanced ML models to prevent equipment failures and optimize production schedules for a global manufacturing company.
+        </p>
+
+        {/* Key Metrics */}
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
+          <div class="text-center">
+            <div class="text-2xl sm:text-3xl lg:text-4xl font-space font-bold text-accent mb-2">60%</div>
+            <div class="text-text-muted text-sm sm:text-base">Downtime Reduction</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl sm:text-3xl lg:text-4xl font-space font-bold text-magenta mb-2">35%</div>
+            <div class="text-text-muted text-sm sm:text-base">Lower Maintenance Costs</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl sm:text-3xl lg:text-4xl font-space font-bold text-accent mb-2">Zero</div>
+            <div class="text-text-muted text-sm sm:text-base">Safety Incidents</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl sm:text-3xl lg:text-4xl font-space font-bold text-magenta mb-2">$4.5M</div>
+            <div class="text-text-muted text-sm sm:text-base">Annual Savings</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Case Study Content */}
+  <section class="py-8 sm:py-12 lg:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <article class="prose prose-lg sm:prose-xl max-w-none prose-headings:font-space prose-headings:text-text prose-p:text-text-muted prose-p:leading-relaxed prose-a:text-accent prose-a:no-underline hover:prose-a:text-magenta prose-strong:text-text prose-code:text-accent prose-code:bg-accent/10 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-pre:bg-surface-light prose-pre:border prose-pre:border-border prose-blockquote:border-l-accent prose-blockquote:bg-accent/5 prose-blockquote:text-text">
+        
+        ## The Challenge
+
+        A global manufacturing company with 12 production facilities across three continents was experiencing significant operational challenges due to unexpected equipment failures:
+
+        - **Unplanned downtime:** Equipment failures were causing an average of 15% production downtime across facilities
+        - **High maintenance costs:** Reactive maintenance was 3x more expensive than planned maintenance
+        - **Production bottlenecks:** Failures in critical machinery disrupted entire production lines
+        - **Safety risks:** Catastrophic failures posed risks to personnel and equipment
+        - **Inventory issues:** Unpredictable output led to difficulties in managing stock levels
+
+        The company needed a proactive solution to anticipate equipment failures, optimize maintenance schedules, and minimize disruptions to their global operations.
+
+        ## Our Solution: IoT-Powered Predictive Maintenance Platform
+
+        We designed and implemented a comprehensive predictive maintenance system leveraging IoT sensors, advanced machine learning models, and a centralized analytics platform.
+
+        ### System Architecture
+
+        **1. IoT Sensor Network**
+        - Vibration sensors for rotating equipment
+        - Temperature and pressure monitoring
+        - Acoustic sensors for anomaly detection
+        - Oil analysis sensors for lubrication systems
+        - Power consumption monitoring
+
+        **2. Data Processing Pipeline**
+        - Edge computing for real-time data pre-processing
+        - Secure data transmission to a cloud-based data lake
+        - Data cleansing, normalization, and feature engineering
+        - Time-series database for storing sensor readings
+
+        **3. Machine Learning Models**
+        - **Remaining Useful Life (RUL) estimation:** Predicts time to failure for critical components
+        - **Anomaly detection algorithms:** Identifies deviations from normal operating behavior
+        - **Failure pattern recognition:** Classifies potential failure modes
+        - **Root cause analysis:** Helps pinpoint the underlying causes of anomalies
+
+        **4. Analytics and Visualization Dashboard**
+        - Real-time monitoring of equipment health status
+        - Predictive alerts and maintenance recommendations
+        - Customizable reports and performance metrics
+        - Integration with existing CMMS (Computerized Maintenance Management System)
+
+        ### Data Sources and Analysis
+
+        - **Sensor Data:** High-frequency readings from thousands of IoT sensors
+        - **Maintenance Logs:** Historical data on repairs, replacements, and inspections
+        - **Operational Data:** Production schedules, equipment utilization, and environmental conditions
+        - **Equipment Specifications:** Manufacturer data on design limits and failure modes
+
+        ### Key Predictive Indicators
+
+        - **Vibration Analysis:** Detects bearing wear, misalignment, and imbalance
+        - **Thermal Monitoring:** Identifies overheating and thermal stress
+        - **Acoustic Analysis:** Recognizes unusual sounds indicating potential issues
+        - **Oil Particle Analysis:** Monitors lubricant degradation and contamination
+        - **Power Signature Analysis:** Detects electrical faults and inefficiencies
+        - **Performance Metrics:** Monitors efficiency and output quality
+
+        ## Implementation Process
+
+        ### Phase 1: Assessment and Planning (2 months)
+        - Comprehensive equipment audit across all facilities
+        - Identification of critical assets and failure modes
+        - Sensor selection and placement strategy
+        - Definition of KPIs and success metrics
+
+        ### Phase 2: Pilot Program (4 months)
+        - Deployment of IoT sensors on a subset of critical equipment in one facility
+        - Data pipeline setup and initial model training
+        - Dashboard development and CMMS integration
+        - Validation of predictive accuracy and alert effectiveness
+
+        ### Phase 3: Scaled Rollout (8 months)
+        - Phased deployment across all 12 facilities
+        - Model refinement and customization for different equipment types
+        - Training for maintenance teams and plant operators
+        - Establishment of a central monitoring and support team
+
+        ### Phase 4: Continuous Improvement (Ongoing)
+        - Regular model retraining with new data
+        - Incorporation of feedback from maintenance personnel
+        - Expansion to additional equipment and predictive capabilities
+        - Performance monitoring and continuous improvement
+
+        ## Results and Impact
+
+        ### Operational Excellence
+        - **60% reduction in unplanned downtime:** Predictive alerts prevented major equipment failures
+        - **35% lower maintenance costs:** Shift from reactive to predictive maintenance
+        - **Zero safety incidents:** Early warning system prevented dangerous equipment failures
+        - **15% increase in OEE (Overall Equipment Effectiveness):** Improved asset utilization and productivity
+        - **$4.5 million in annual savings:** Achieved through reduced downtime, lower repair costs, and optimized MRO inventory
+
+        ### Strategic Advantages
+        - **Improved production planning:** More reliable equipment performance led to more accurate scheduling
+        - **Enhanced product quality:** Consistent equipment operation reduced defects
+        - **Extended asset lifespan:** Proactive maintenance helped maximize equipment longevity
+        - **Data-driven decision making:** Insights from the platform informed capital expenditure and operational strategies
+
+        ## Key Features
+
+        ### Advanced Anomaly Detection
+        The system uses multiple ML algorithms to detect equipment anomalies:
+
+        ```python
+        class AnomalyDetector:
+            def __init__(self):
+                self.isolation_forest = IsolationForest() # Example: scikit-learn's IsolationForest
+                self.autoencoder = AutoencoderModel() # Example: Custom Keras/TensorFlow Autoencoder
+                self.statistical_detector = StatisticalAnomalyDetector() # Example: Custom statistical model
+            
+            def detect_anomalies(self, sensor_data):
+                # Ensemble approach for robust anomaly detection
+                if_anomalies = self.isolation_forest.predict(sensor_data)
+                ae_anomalies = self.autoencoder.detect_anomalies(sensor_data)
+                stat_anomalies = self.statistical_detector.detect(sensor_data)
+                
+                # Combine results with confidence scoring
+                combined_anomalies = self.combine_predictions(
+                    if_anomalies, ae_anomalies, stat_anomalies
+                )
+                return combined_anomalies
+
+            def combine_predictions(self, *predictions):
+                # Placeholder for actual combination logic
+                # e.g., weighted average, majority vote, etc.
+                # This is a simplified example
+                # Assuming predictions are anomaly scores (higher is more anomalous)
+                # and are normalized or comparable
+                num_predictions = len(predictions)
+                if num_predictions == 0:
+                    return 0 # Or handle as an error
+                
+                final_score = sum(pred for pred_array in predictions for pred in pred_array) / sum(len(pred_array) for pred_array in predictions)
+                return final_score
+        ```
+
+        ### Remaining Useful Life (RUL) Prediction
+        - LSTM-based models predict the RUL of critical components, allowing for just-in-time maintenance.
+
+        ### Interactive Dashboards
+        - Customizable views for plant managers, maintenance engineers, and operators.
+        - Real-time health scores, trend charts, and maintenance recommendations.
+
+        ## Technology Stack
+
+        **IoT and Edge:**
+        - **Sensors:** Vibration, thermal, acoustic, pressure, oil quality sensors
+        - **Edge Devices:** Raspberry Pi, NVIDIA Jetson, industrial gateways
+        - **Communication:** MQTT, OPC-UA, LoRaWAN
+
+        **Cloud and Backend:**
+        - **Cloud Platform:** AWS (IoT Core, S3, Kinesis, SageMaker), Azure (IoT Hub, Blob Storage, ML Studio)
+        - **Data Storage:** Apache Kafka, InfluxDB, TimescaleDB, AWS Timestream
+        - **Processing:** Apache Spark, Apache Flink
+        - **Programming Languages:** Python, Scala, Java
+
+        **Machine Learning:**
+        - **Frameworks:** TensorFlow, PyTorch, Scikit-learn
+        - **Models:** LSTMs, Autoencoders, Isolation Forest, XGBoost, CNNs
+
+        **Frontend and Visualization:**
+        - **Frameworks:** React, Angular, Vue.js
+        - **Libraries:** D3.js, Grafana, Tableau
+
+        ## Challenges Overcome
+
+        1. **Data quality and integration:** Implemented robust data validation and cleansing pipelines
+        2. **False positives:** Refined models to reduce unnecessary alerts
+        3. **Network reliability:** Designed redundant communication paths
+        4. **Cultural change:** Shifted mindset from reactive to predictive maintenance
+
+        ## Future Enhancements
+
+        The company is exploring additional capabilities:
+
+        - **Digital twins:** Virtual equipment models for advanced simulation
+        - **Augmented reality:** AR-guided maintenance procedures
+        - **Supply chain integration:** Predictive spare parts ordering
+        - **Energy optimization:** AI-driven energy efficiency improvements
+
+        ## Client Testimonial
+
+        <blockquote class="p-6 italic border-l-4 bg-surface border-accent/50 text-text/80 rounded-lg">
+          <p>"The predictive maintenance system has transformed our operations. We've eliminated unexpected equipment failures, reduced maintenance costs significantly, and most importantly, created a safer work environment for our employees. The ROI exceeded our expectations, and we're now expanding the system to additional equipment types."</p>
+          <footer class="mt-4 font-bold text-accent">
+            — VP of Operations, Global Manufacturing Company
+          </footer>
+        </blockquote>
+
+        ## Conclusion
+
+        This case study demonstrates the transformative power of IoT and machine learning in manufacturing operations. By implementing a comprehensive predictive maintenance system, the company achieved significant improvements in equipment reliability, cost reduction, and operational safety.
+
+        Key success factors included:
+        - Comprehensive sensor deployment and data collection strategy
+        - Advanced machine learning models tailored to specific equipment types
+        - Seamless integration with existing maintenance workflows and systems
+        - Strong change management and training programs
+        - Continuous monitoring and improvement processes
+
+        The success of this implementation highlights the importance of:
+        - Taking a holistic approach to predictive maintenance
+        - Investing in robust data infrastructure and analytics capabilities
+        - Focusing on user adoption and change management
+        - Maintaining a continuous improvement mindset
+
+        As manufacturing continues to evolve toward Industry 4.0, predictive maintenance systems will become increasingly critical for maintaining competitive advantages while ensuring operational excellence and worker safety.
+
+      </article>
+    </div>
+  </section>
+
+  {/* Related Case Studies */}
+  <section class="py-16 sm:py-24 bg-secondary">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 sm:mb-16">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-space font-bold text-text mb-4 sm:mb-6">
+          Related Case Studies
+        </h2>
+        <p class="text-lg sm:text-xl text-text-muted max-w-3xl mx-auto">
+          Explore more success stories from our AI implementations.
+        </p>
+      </div>
+      
+      <div class="text-center">
+        <a
+          href="/case-studies"
+          class="group inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-accent/30 text-accent font-medium rounded-2xl sm:rounded-3xl transition-all duration-500 hover:border-accent hover:bg-accent/10 hover:shadow-glow backdrop-blur-sm hover:scale-105 text-sm sm:text-base"
+        >
+          <span class="flex items-center">
+            View All Case Studies
+            <svg class="ml-2 sm:ml-3 w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
