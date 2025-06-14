@@ -132,21 +132,11 @@ const NavBarClient = () => {
                 boxShadow: "0 0 30px rgba(0, 102, 204, 0.4)"
               }}
               whileTap={{ scale: 0.95 }}
-              className="relative bg-gradient-to-r from-accent to-magenta text-white px-6 xl:px-8 py-2.5 xl:py-3 rounded-xl xl:rounded-2xl font-medium transition-all duration-300 overflow-hidden group text-sm xl:text-base"
+              className="group relative inline-flex items-center justify-center px-6 xl:px-8 py-2.5 xl:py-3 bg-gradient-to-r from-accent to-magenta text-white font-medium rounded-xl xl:rounded-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-glow overflow-hidden text-sm xl:text-base"
             >
               <span className="relative z-10">Contact Us</span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-magenta to-accent opacity-0 group-hover:opacity-100"
-                transition={{ duration: 0.3 }}
-              />
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transform -skew-x-12"
-                initial={{ x: '-100%' }}
-                whileHover={{ 
-                  x: '200%',
-                  transition: { duration: 0.8, ease: "easeInOut" }
-                }}
-              />
+              <div className="absolute inset-0 bg-gradient-to-r from-magenta to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
             </motion.a>
           </div>
 
