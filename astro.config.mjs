@@ -3,6 +3,7 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import partytown from '@astrojs/partytown';
 
 export default defineConfig({
   markdown: {
@@ -19,7 +20,8 @@ export default defineConfig({
     react(),
     tailwind(),
     mdx(),
-    sitemap()
+    sitemap(),
+    partytown()
   ],
   output: 'static',
   image: {

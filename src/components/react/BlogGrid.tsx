@@ -46,9 +46,9 @@ const BlogGrid: React.FC<BlogGridProps> = ({ posts, featured = false }) => {
           : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
       }`}
     >
-      {posts.map((post) => (
+      {posts.map((post, index) => (
         <motion.article
-          key={post.slug}
+          key={`${post.slug}-${index}`}
           variants={itemVariants}
           whileHover={{ 
             y: -12,

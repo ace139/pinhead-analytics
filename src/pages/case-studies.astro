@@ -4,87 +4,43 @@ import NavBar from '../components/NavBar.astro';
 import SectionHero from '../components/SectionHero.astro';
 import CaseStudyCard from '../components/CaseStudyCard.astro';
 import Footer from '../components/Footer.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
-const caseStudies = [
-  {
-    industry: 'Financial Services',
-    title: 'AI-Powered Risk Assessment Platform',
-    description: 'Implemented a comprehensive LLM-based risk analysis system that processes regulatory documents, market data, and compliance requirements in real-time for a major investment bank.',
-    outcomeMetric: 'Risk Detection Improvement',
-    metricValue: '85%',
-    stackIcons: ['LLM', 'AWS', 'PT'],
-    link: '/case-studies/financial-risk-ai',
-    imageUrl: 'https://images.pexels.com/photos/5439381/pexels-photo-5439381.jpeg?auto=compress&cs=tinysrgb&w=600',
-    challenge: 'Manual risk assessment processes were taking weeks and missing critical market signals.',
-    solution: 'Custom LLM fine-tuned on financial regulations with real-time data processing pipeline.',
-    results: ['85% faster risk detection', '60% reduction in false positives', '$2M annual savings']
-  },
-  {
-    industry: 'Healthcare',
-    title: 'Clinical Decision Support System',
-    description: 'Developed a GenAI solution for automated diagnosis assistance and treatment recommendations, integrating with existing hospital management systems.',
-    outcomeMetric: 'Diagnostic Accuracy',
-    metricValue: '94%',
-    stackIcons: ['GPT', 'Azure', 'ML'],
-    link: '/case-studies/healthcare-diagnosis-ai',
-    imageUrl: 'https://images.pexels.com/photos/4386464/pexels-photo-4386464.jpeg?auto=compress&cs=tinysrgb&w=600',
-    challenge: 'Doctors needed faster access to medical literature and diagnostic support for complex cases.',
-    solution: 'Multi-agent system with medical knowledge base and real-time literature analysis.',
-    results: ['94% diagnostic accuracy', '40% faster diagnosis', 'Improved patient outcomes']
-  },
-  {
-    industry: 'Manufacturing',
-    title: 'Predictive Maintenance Revolution',
-    description: 'Implemented IoT-powered predictive maintenance using advanced ML models to prevent equipment failures and optimize production schedules.',
-    outcomeMetric: 'Downtime Reduction',
-    metricValue: '60%',
-    stackIcons: ['ML', 'IoT', 'GCP'],
-    link: '/case-studies/manufacturing-predictive-maintenance',
-    imageUrl: 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=600',
-    challenge: 'Unexpected equipment failures causing costly production downtime and safety risks.',
-    solution: 'ML-powered predictive models analyzing sensor data with automated alert systems.',
-    results: ['60% reduction in downtime', '35% lower maintenance costs', 'Zero safety incidents']
-  },
-  {
-    industry: 'Retail & E-commerce',
-    title: 'Personalized Shopping Experience',
-    description: 'Built an AI-driven personalization engine delivering tailored product recommendations and dynamic pricing strategies for a major e-commerce platform.',
-    outcomeMetric: 'Conversion Rate Increase',
-    metricValue: '42%',
-    stackIcons: ['AI', 'ML', 'AWS'],
-    link: '/case-studies/retail-personalization',
-    imageUrl: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600',
-    challenge: 'Low conversion rates and poor customer engagement with generic product recommendations.',
-    solution: 'Real-time personalization engine with behavioral analysis and dynamic pricing.',
-    results: ['42% increase in conversion', '25% higher AOV', '30% improved retention']
-  },
-  {
-    industry: 'Legal Services',
-    title: 'Automated Contract Analysis',
-    description: 'Developed specialized LLMs for legal document processing and contract analysis, reducing review time while improving accuracy for a top law firm.',
-    outcomeMetric: 'Review Speed Improvement',
-    metricValue: '90%',
-    stackIcons: ['LLM', 'NLP', 'Azure'],
-    link: '/case-studies/legal-contract-analysis',
-    imageUrl: 'https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=600',
-    challenge: 'Manual contract review was time-consuming and prone to human error.',
-    solution: 'Custom LLM trained on legal corpus with automated clause extraction and risk assessment.',
-    results: ['90% faster document review', '95% accuracy rate', '50% cost reduction']
-  },
-  {
-    industry: 'Supply Chain',
-    title: 'Intelligent Logistics Optimization',
-    description: 'Implemented multi-agent systems for supply chain optimization, demand forecasting, and route planning for a global logistics company.',
-    outcomeMetric: 'Cost Reduction',
-    metricValue: '30%',
-    stackIcons: ['AI', 'ML', 'GCP'],
-    link: '/case-studies/supply-chain-optimization',
-    imageUrl: 'https://images.pexels.com/photos/906494/pexels-photo-906494.jpeg?auto=compress&cs=tinysrgb&w=600',
-    challenge: 'Inefficient route planning and poor demand forecasting leading to high operational costs.',
-    solution: 'Multi-agent optimization system with real-time traffic and demand analysis.',
-    results: ['30% cost reduction', '25% faster deliveries', '40% better inventory turnover']
-  }
-];
+// Define the shape of the processed data to be passed to the card
+interface CaseStudyProcessed {
+  industry: string;
+  title: string;
+  description: string;
+  outcomeMetric: string;
+  metricValue: string;
+  stackIcons: string[];
+  link: string;
+  imageUrl?: string;
+  date: Date; // For sorting
+}
+
+// 1. Fetch case studies from the collection
+const caseStudiesRaw: CollectionEntry<'case-studies'>[] = await getCollection('case-studies');
+
+// 2. Process the fetched data to match the CaseStudyCard props
+const caseStudiesProcessed: CaseStudyProcessed[] = caseStudiesRaw.map((study: CollectionEntry<'case-studies'>) => ({
+  industry: study.data.category ?? 'General', // Map category to industry
+  title: study.data.title,
+  description: study.data.description,
+  outcomeMetric: study.data.outcomeMetric ?? '',
+  metricValue: study.data.metricValue ?? '',
+  stackIcons: study.data.services ?? [], // Map services to stackIcons
+  link: `/case-studies/${study.slug}`, // Construct link from slug
+  imageUrl: study.data.image?.src, // Get imageUrl from image object
+  date: study.data.date,
+}));
+
+// 3. Sort case studies by date, newest first
+caseStudiesProcessed.sort((a, b) => b.date.valueOf() - a.date.valueOf());
+
+// 4. Get the 3 most recent for the "featured" section
+const featuredCaseStudies = caseStudiesProcessed.slice(0, 3);
+
 ---
 
 <Layout 
@@ -109,7 +65,7 @@ const caseStudies = [
       
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 xl:gap-12">
-          {caseStudies.map((study, index) => (
+          {caseStudiesProcessed.map((study, index) => (
             <div class="animate-scale-in" style={`animation-delay: ${index * 0.1}s; opacity: 0; animation-fill-mode: forwards;`}>
               <CaseStudyCard
                 industry={study.industry}

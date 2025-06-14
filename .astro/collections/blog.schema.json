@@ -11,12 +11,29 @@
           "type": "string"
         },
         "date": {
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "string",
+                  "format": "date"
+                },
+                {
+                  "type": "integer",
+                  "format": "unix-time"
+                }
+              ]
+            }
+          ]
         },
-        "category": {
-          "type": "string"
-        },
-        "readTime": {
+        "author": {
           "type": "string"
         },
         "tags": {
@@ -25,19 +42,34 @@
             "type": "string"
           }
         },
-        "author": {
+        "image": {
+          "type": "object",
+          "properties": {
+            "src": {
+              "type": "string"
+            },
+            "alt": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "src",
+            "alt"
+          ],
+          "additionalProperties": false
+        },
+        "layout": {
           "type": "string"
+        },
+        "featured": {
+          "type": "boolean"
         },
         "$schema": {
           "type": "string"
         }
       },
       "required": [
-        "title",
-        "description",
-        "date",
-        "category",
-        "readTime"
+        "title"
       ],
       "additionalProperties": false
     }

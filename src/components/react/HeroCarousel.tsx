@@ -255,7 +255,7 @@ const HeroCarousel: React.FC = () => {
               
               {/* CTA Buttons - Fixed Position - MAIN CTA HIGHLIGHTED */}
               <motion.div 
-                className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start pt-4"
+                className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center pt-4"
                 variants={itemVariants}
               >
                 <motion.a
