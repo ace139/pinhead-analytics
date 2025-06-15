@@ -10,7 +10,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 interface InsightProcessed {
   title: string;
   excerpt: string;
-  date: string;
+  // date: string; // Date removed as per user request
   category: string;
   slug: string;
   readTime: string;
@@ -24,7 +24,7 @@ const allInsightsProcessed: InsightProcessed[] = allInsightsFetched
     // Ensure the mapped object conforms to InsightProcessed
     title: insight.data.title,
     excerpt: insight.data.description,
-    date: insight.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+    // date: insight.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }), // Date removed as per user request
     category: insight.data.category,
     slug: insight.slug, // Use the correct slug from the entry
     readTime: insight.data.readTime,

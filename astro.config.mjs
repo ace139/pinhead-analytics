@@ -24,6 +24,16 @@ export default defineConfig({
     partytown()
   ],
   output: 'static',
+  redirects: {
+    '/use-cases': {
+      status: 301,
+      destination: '/industries'
+    },
+    '/use-cases/:slug': {
+      status: 301,
+      destination: '/industries/:slug'
+    }
+  },
   image: {
     domains: ['images.pexels.com'],
   }

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 interface BlogPost {
   title: string;
   excerpt: string;
-  date: string;
+  // date: string; // Date removed as per user request
   category: string;
   slug: string;
   readTime: string;
@@ -86,8 +86,8 @@ const BlogGrid: React.FC<BlogGridProps> = ({ posts, featured = false }) => {
           </div>
           
           <div className="relative z-10 p-4 sm:p-6 lg:p-8 xl:p-10 flex flex-col flex-grow">
-            <div className="flex items-center justify-between text-xs sm:text-sm text-gray-600 mb-4 sm:mb-6 flex-shrink-0">
-              <span>{post.date}</span>
+            <div className="flex items-center justify-end text-xs sm:text-sm text-gray-600 mb-4 sm:mb-6 flex-shrink-0">
+              {/* <span>{post.date}</span> Date removed */}
               <span>{post.readTime}</span>
             </div>
             

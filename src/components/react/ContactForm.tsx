@@ -228,10 +228,10 @@ const ContactForm: React.FC = () => {
           </p>
           <div className="text-center">
             <a 
-              href="mailto:hello@pinheadanalytics.com" 
+              href="mailto:contact@pinheadanalytics.com" 
               className="text-blue-600 hover:text-pink-600 transition-colors duration-300 font-medium text-sm sm:text-base"
             >
-              hello@pinheadanalytics.com
+              contact@pinheadanalytics.com
             </a>
           </div>
         </motion.div>

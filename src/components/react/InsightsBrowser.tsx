@@ -4,7 +4,7 @@ import BlogGrid from './BlogGrid'; // Assuming BlogGrid is in the same directory
 interface InsightProcessed {
   title: string;
   excerpt: string;
-  date: string;
+  // date: string; // Date removed as per user request
   category: string;
   slug: string;
   readTime: string;

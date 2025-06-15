@@ -17,7 +17,7 @@ const NavBarClient = () => {
   const navItems = [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
-    { name: 'Use Cases', href: '/use-cases' },
+    { name: 'Industries', href: '/industries' },
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Insights', href: '/insights' },
     { name: 'About', href: '/about' }

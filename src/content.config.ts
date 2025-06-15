@@ -45,7 +45,7 @@ const caseStudiesCollection = defineCollection({
 });
 
 // Placeholder for use-cases collection
-const useCasesCollection = defineCollection({
+const industriesCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
@@ -90,6 +90,6 @@ const blogCollection = defineCollection({
 export const collections = {
   'insights': insightsCollection,
   'case-studies': caseStudiesCollection,
-  'use-cases': useCasesCollection,
+  'industries': industriesCollection,
   'blog': blogCollection,
 };

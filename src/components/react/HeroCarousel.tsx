@@ -94,7 +94,7 @@ const HeroCarousel: React.FC = () => {
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % services.length);
-    }, 4000); // Change every 4 seconds
+    }, 5000); // Change every 5 seconds
 
     return () => clearInterval(interval);
   }, [isPlaying]);

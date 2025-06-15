@@ -49,14 +49,7 @@ const { Content } = await entry.render();
               )}
             </div>
           </div>
-          <span class="text-text-muted/50">|</span>
-          <time datetime={entry.data.date.toISOString()} class="text-sm sm:text-base">
-            {new Date(entry.data.date).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}
-          </time>
+
         </div>
       </header>
       <div class="prose prose-lg sm:prose-xl max-w-none prose-headings:font-space prose-headings:font-bold prose-a:text-accent hover:prose-a:text-accent-dark prose-img:rounded-lg prose-invert">
