@@ -28,12 +28,15 @@ const ContactForm: React.FC = () => {
     setError('');
 
     try {
-      const response = await fetch('/api/contact', {
+      const form = e.target as HTMLFormElement;
+      const formData = new FormData(form);
+
+      const response = await fetch('/', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify(formData),
+        body: new URLSearchParams(formData as any).toString(),
       });
 
       if (response.ok) {
@@ -41,12 +44,13 @@ const ContactForm: React.FC = () => {
       } else {
         throw new Error('Failed to submit form');
       }
-    } catch { // err is not used
+    } catch (err) {
       setError('Something went wrong. Please try again or email us directly.');
     } finally {
       setIsSubmitting(false);
     }
   };
+
 
   if (isSubmitted) {
     return (
