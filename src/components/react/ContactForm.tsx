@@ -137,6 +137,13 @@ const ContactForm: React.FC = () => {
         </motion.h2>
         
         <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
+  {/* Netlify hidden inputs for AJAX submission */}
+  <input type="hidden" name="form-name" value="contact" />
+  <p className="hidden">
+    <label>
+      Don’t fill this out if you’re human: <input name="bot-field" onChange={handleChange} />
+    </label>
+  </p>
           {/* Email Field */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
