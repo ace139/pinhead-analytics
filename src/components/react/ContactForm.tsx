@@ -136,7 +136,7 @@ const ContactForm: React.FC = () => {
           Get In Touch
         </motion.h2>
         
-        <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
           {/* Email Field */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
